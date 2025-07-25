@@ -1,0 +1,26 @@
+{
+  "name": "cypress_automacao_ui",
+  "version": "1.0.0",
+  "description": "Repositório criado para atender ao exercício proposto do módulo 11.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cleberdevfull/Cypress_Automacao_UI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cleberdevfull/Cypress_Automacao_UI/issues"
+  },
+  "homepage": "https://github.com/cleberdevfull/Cypress_Automacao_UI#readme",
+  "dependencies": {
+    "cypress": "^13.6.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0"
+  }
+}
