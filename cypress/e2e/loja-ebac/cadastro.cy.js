@@ -10,7 +10,7 @@ describe('Funcionalidade: Login', () => {
     
 
     it('Deve fazer cadastro com sucesso', () => {
-        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+        cy.visit('minha-conta')
         cy.get('#reg_email').type(email)
         cy.get('#reg_password').type('@123')
         cy.get(':nth-child(4) > .button').click()
