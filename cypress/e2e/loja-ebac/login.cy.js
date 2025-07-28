@@ -35,14 +35,14 @@ describe('Funcionalidade: Login', () => {
         cy.get('.woocommerce-error').should('exist')
         
     });
-        it('Deve fazer login com sucesso -  Usando massa de dados', () => {
+        it('Deve fazer login com sucesso - Usando massa de dados', () => {
         cy.get('#username').type(perfil.usuario)
         cy.get('#password').type(perfil.Senha)
         cy.get('.woocommerce-form > .button').click()
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, cleber.santos.almeida (não é cleber.santos.almeida? Sair)')
     });
 
-        it.only('Deve fazer login com sucesso -  Usando Fixture', () => {
+        it('Deve fazer login com sucesso - Usando Fixture', () => {
         cy.fixture('perfil').then( dadosFixture => {
             cy.get('#username').type(dadosFixture.usuario , { log:false })
             cy.get('#password').type(dadosFixture.Senha , { log:false })
@@ -50,6 +50,11 @@ describe('Funcionalidade: Login', () => {
             cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, cleber.santos.almeida (não é cleber.santos.almeida? Sair)')
             })
        
+    });
+
+    it.only('Deve fazer login com sucesso - Usando comandos customizados', () => {
+        cy.login('cleber.santos.almeida@gmail.com', '@12345567890')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, cleber.santos.almeida (não é cleber.santos.almeida? Sair)')
     });
 
 })

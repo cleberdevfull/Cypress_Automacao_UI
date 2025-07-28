@@ -8,9 +8,12 @@ describe('Funcionalidade: Login', () => {
     var email = faker.internet.email(nome)
     var sobrenome = faker.person.lastName()
     
+    beforeEach(() => {
+        cy.visit('minha-conta')
+    });
 
     it('Deve fazer cadastro com sucesso', () => {
-        cy.visit('minha-conta')
+        //cy.visit('minha-conta')
         cy.get('#reg_email').type(email)
         cy.get('#reg_password').type('@123')
         cy.get(':nth-child(4) > .button').click()
@@ -23,5 +26,10 @@ describe('Funcionalidade: Login', () => {
         cy.get('.woocommerce-message').should('exist')
 
     })
+
+    it.only('Deve completar o cadastro com sucesso - Usando comando customizado', () => {
+        cy.preCadastro(faker.internet.email(), '@123', faker.person.firstName(), faker.person.lastName(),  )
+        cy.get('.woocommerce-message').should('exist')
+    });
 
 })
